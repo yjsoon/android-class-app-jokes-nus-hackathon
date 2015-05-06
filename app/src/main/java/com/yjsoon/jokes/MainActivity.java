@@ -1,9 +1,11 @@
 package com.yjsoon.jokes;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +14,14 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView jokeQuestionText = (TextView) findViewById(R.id.joke_question_text);
+        Button showPunchlineButton = (Button) findViewById(R.id.show_punchline_button);
+        TextView punchlineText = (TextView) findViewById(R.id.punchline_text);
+
+        jokeQuestionText.setText("Dad, did you get a haircut?");
+        punchlineText.setText("No, I got them all cut.");
+
     }
 
 
