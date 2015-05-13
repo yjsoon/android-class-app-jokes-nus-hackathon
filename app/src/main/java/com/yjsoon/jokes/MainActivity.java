@@ -17,8 +17,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView jokeQuestionText = (TextView) findViewById(R.id.joke_question_text);
-        Button showPunchlineButton = (Button) findViewById(R.id.show_punchline_button);
+        final TextView jokeQuestionText = (TextView) findViewById(R.id.joke_question_text);
+        final Button showPunchlineButton = (Button) findViewById(R.id.show_punchline_button);
         final TextView punchlineText = (TextView) findViewById(R.id.punchline_text);
         final Button showNextJokeButton = (Button) findViewById(R.id.show_next_joke_button);
 
@@ -37,6 +37,10 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Log.d("YJ", "Show next joke!!!");
+                jokeQuestionText.setText("Why couldn't the bicycle stand up by itself?");
+                punchlineText.setText("Because it was two tired");
+                punchlineText.setVisibility(View.INVISIBLE);
+                showNextJokeButton.setVisibility(View.INVISIBLE);
             }
         });
     }
