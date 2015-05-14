@@ -1,5 +1,6 @@
 package com.yjsoon.jokes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -26,6 +27,7 @@ public class MainActivity extends ActionBarActivity {
         final Button showPunchlineButton = (Button) findViewById(R.id.show_punchline_button);
         final TextView punchlineText = (TextView) findViewById(R.id.punchline_text);
         final Button showNextJokeButton = (Button) findViewById(R.id.show_next_joke_button);
+        final Button lolButton = (Button) findViewById(R.id.lol_button);
 
         mJokeList = new ArrayList<Joke>();
         mJokeList.add(new Joke("Dad, did you get a haircut?", "No, I got them all cut."));
@@ -40,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 punchlineText.setVisibility(View.VISIBLE);
                 showNextJokeButton.setVisibility(View.VISIBLE);
+                lolButton.setVisibility(View.VISIBLE);
             }
         });
 
@@ -60,9 +63,17 @@ public class MainActivity extends ActionBarActivity {
                 }
 
                 showNextJokeButton.setVisibility(View.INVISIBLE);
-
             }
         });
+
+        lolButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LolActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

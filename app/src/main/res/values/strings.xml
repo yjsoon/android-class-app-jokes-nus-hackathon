@@ -7,4 +7,6 @@
     <string name="punchline_placeholder">this is the punchline</string>
     <string name="show_punchline_text">Show Punchline</string>
     <string name="show_next_joke_text">Show Next Joke</string>
+    <string name="title_activity_lol">LolActivity</string>
+    <string name="lol">LOL</string>
 </resources>
