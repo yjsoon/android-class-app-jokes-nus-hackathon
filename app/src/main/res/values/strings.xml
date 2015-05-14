@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="joke_placeholder">This is a joke</string>
+    <string name="punchline_placeholder">this is the punchline</string>
+    <string name="show_punchline_text">Show Punchline</string>
+    <string name="show_next_joke_text">Show Next Joke</string>
 </resources>
