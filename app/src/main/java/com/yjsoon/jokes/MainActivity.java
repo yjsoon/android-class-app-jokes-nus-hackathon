@@ -9,10 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends ActionBarActivity {
 
     int mJokeNumber = 0;
+    ArrayList<Joke> mJokeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,13 @@ public class MainActivity extends ActionBarActivity {
         final TextView punchlineText = (TextView) findViewById(R.id.punchline_text);
         final Button showNextJokeButton = (Button) findViewById(R.id.show_next_joke_button);
 
-        jokeQuestionText.setText("Dad, did you get a haircut?");
-        punchlineText.setText("No, I got them all cut.");
+        mJokeList = new ArrayList<Joke>();
+        mJokeList.add(new Joke("Dad, did you get a haircut?", "No, I got them all cut."));
+        mJokeList.add(new Joke("Why couldn't the bicycle stand up by itself?", "Because it was two tired"));
+        mJokeList.add(new Joke("Can February March?", "No, but April May!"));
+
+        jokeQuestionText.setText(mJokeList.get(0).getJoke());
+        punchlineText.setText(mJokeList.get(0).getPunchline());
 
         showPunchlineButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,22 +49,9 @@ public class MainActivity extends ActionBarActivity {
                 Log.d("YJ", "Show next joke!!!");
 
                 mJokeNumber++; // we increment the joke number each time this is pressed
-                String joke = "", punchline = ""; // define first, set in the if statement
 
-                // could probably use a switch statement instead...
-                if (mJokeNumber == 1) {
-                    joke = "Why couldn't the bicycle stand up by itself?";
-                    punchline = "Because it was two tired";
-                } else if (mJokeNumber == 2) {
-                    joke = "Can February March?";
-                    punchline = "No, but April May!";
-                } else {
-                    joke = "There are no more jokes.";
-                    punchline = "Life is tough.";
-                }
-
-                jokeQuestionText.setText(joke);
-                punchlineText.setText(punchline);
+                jokeQuestionText.setText(mJokeList.get(mJokeNumber).getJoke());
+                punchlineText.setText(mJokeList.get(mJokeNumber).getPunchline());
                 punchlineText.setVisibility(View.INVISIBLE);
                 showNextJokeButton.setVisibility(View.INVISIBLE);
             }

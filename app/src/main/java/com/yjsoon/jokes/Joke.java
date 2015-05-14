@@ -1,3 +1,5 @@
+package com.yjsoon.jokes;
+
 /**
  * Created by yingjie on 14/5/15.
  */
