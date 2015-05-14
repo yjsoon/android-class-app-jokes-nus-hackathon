@@ -48,12 +48,19 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Log.d("YJ", "Show next joke!!!");
 
-                mJokeNumber++; // we increment the joke number each time this is pressed
+                if (mJokeNumber < mJokeList.size() - 1) {
+                    mJokeNumber++; // we increment the joke number each time this is pressed
+                    jokeQuestionText.setText(mJokeList.get(mJokeNumber).getJoke());
+                    punchlineText.setText(mJokeList.get(mJokeNumber).getPunchline());
+                    punchlineText.setVisibility(View.INVISIBLE);
+                } else {
+                    jokeQuestionText.setText("No more jokes. Life is sad.");
+                    punchlineText.setText("Very very sad.");
+                    showPunchlineButton.setVisibility(View.INVISIBLE);
+                }
 
-                jokeQuestionText.setText(mJokeList.get(mJokeNumber).getJoke());
-                punchlineText.setText(mJokeList.get(mJokeNumber).getPunchline());
-                punchlineText.setVisibility(View.INVISIBLE);
                 showNextJokeButton.setVisibility(View.INVISIBLE);
+
             }
         });
     }
